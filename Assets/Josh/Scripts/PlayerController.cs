@@ -28,8 +28,11 @@ public class PlayerController : MonoBehaviour
         // get our X and Z movement based off of our left stick
         float moveHx = ourGamepad.leftStick.x.ReadValue();
         float moveHy = ourGamepad.leftStick.y.ReadValue();
+        // get our triggers and use them for vertical movement
+        float moveYr = ourGamepad.rightTrigger.ReadValue(); 
+        float moveYl = ourGamepad.leftTrigger.ReadValue(); 
         // turn those values in to a movement vector
-        move = transform.right * moveHx + transform.forward * moveHy;
+        move = transform.right * moveHx + transform.forward * moveHy + new Vector3(0, moveYr + -moveYl, 0);
         // apply to the character controller
         characterController.Move(move.normalized * Time.deltaTime * speed);
         // lets rotate the bee using the right stick
