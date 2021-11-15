@@ -10,12 +10,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CharacterController characterController;   // our main character controller that we will be moving
     Vector3 move;                                               // our player movement vector
     [SerializeField] float speed;                               // speed of our player
+    [SerializeField] float rotationSpeed;                            // rotation speed
+    float currentRot;                                           // our current rotation on the Y axis
     Gamepad ourGamepad;                                         // our current gamepad
 
     void Start()
     {
         // make sure we set our current gamepad
         ourGamepad = Gamepad.current;
+        // get our current rotation
+        currentRot = transform.rotation.y;
     }
 
     // Update is called once per frame
@@ -24,11 +28,18 @@ public class PlayerController : MonoBehaviour
         // get our X and Z movement based off of our left stick
         float moveHx = ourGamepad.leftStick.x.ReadValue();
         float moveHy = ourGamepad.leftStick.y.ReadValue();
-
-        // total move 
+        // turn those values in to a movement vector
         move = new Vector3(moveHx, 0, moveHy);
-
+        // get our current forward and apply our movement in relation to it
+        Vector3 finalMove = move;
+        finalMove += transform.forward;
         // apply to the character controller
-        characterController.Move(move * Time.deltaTime * speed);
+        characterController.Move(move.normalized * Time.deltaTime * speed);
+        // lets rotate the bee using the right stick
+        float rotX = ourGamepad.rightStick.x.ReadValue();
+        currentRot += rotX; // apply as an addition to turn our bee
+        // add our rotation to the transform rotation
+        transform.rotation = Quaternion.Euler(new Vector3(0, currentRot * rotationSpeed, 0));
+
     }
 }
