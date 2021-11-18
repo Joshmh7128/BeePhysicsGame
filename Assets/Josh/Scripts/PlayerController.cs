@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     Gamepad ourGamepad;                                         // our current gamepad
     [SerializeField] LineRenderer renderer1, renderer2, renderer3, renderer4; // our line renderers
     [SerializeField] Transform lineTarget1, lineTarget2, lineTarget3, lineTarget4; // our line renderer target
+    [SerializeField] Transform movementArrow; // cosmetic arrow representing our movement
 
     void Start()
     {
@@ -45,7 +46,8 @@ public class PlayerController : MonoBehaviour
         // update the positions of our line renderers
         renderer1.SetPosition(0, transform.position); renderer2.SetPosition(0, transform.position); renderer3.SetPosition(0, transform.position); renderer4.SetPosition(0, transform.position);
         renderer1.SetPosition(1, lineTarget1.position); renderer2.SetPosition(1, lineTarget2.position); renderer3.SetPosition(1, lineTarget3.position); renderer4.SetPosition(1, lineTarget4.position);
-
+        // update our movement arrow
+        movementArrow.transform.LookAt(movementArrow.transform.position + move);
     }
 
     // fixed update runs 60 times per second
