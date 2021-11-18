@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float rotationSpeed;                            // rotation speed
     float currentRot;                                           // our current rotation on the Y axis
     Gamepad ourGamepad;                                         // our current gamepad
+    [SerializeField] LineRenderer renderer1, renderer2, renderer3, renderer4; // our line renderers
+    [SerializeField] Transform lineTarget1, lineTarget2, lineTarget3, lineTarget4; // our line renderer target
 
     void Start()
     {
@@ -40,6 +42,13 @@ public class PlayerController : MonoBehaviour
         currentRot += rotX; // apply as an addition to turn our bee
         // add our rotation to the transform rotation
         transform.rotation = Quaternion.Euler(new Vector3(0, currentRot * rotationSpeed, 0));
+    }
 
+    // fixed update runs 60 times per second
+    private void FixedUpdate()
+    {
+        // update the positions of our line renderers
+        renderer1.SetPosition(0, transform.position); renderer2.SetPosition(0, transform.position); renderer3.SetPosition(0, transform.position); renderer4.SetPosition(0, transform.position);
+        renderer1.SetPosition(1, lineTarget1.position); renderer2.SetPosition(1, lineTarget2.position); renderer3.SetPosition(1, lineTarget3.position); renderer4.SetPosition(1, lineTarget4.position);
     }
 }
