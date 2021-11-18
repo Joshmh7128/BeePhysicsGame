@@ -42,13 +42,14 @@ public class PlayerController : MonoBehaviour
         currentRot += rotX; // apply as an addition to turn our bee
         // add our rotation to the transform rotation
         transform.rotation = Quaternion.Euler(new Vector3(0, currentRot * rotationSpeed, 0));
+        // update the positions of our line renderers
+        renderer1.SetPosition(0, transform.position); renderer2.SetPosition(0, transform.position); renderer3.SetPosition(0, transform.position); renderer4.SetPosition(0, transform.position);
+        renderer1.SetPosition(1, lineTarget1.position); renderer2.SetPosition(1, lineTarget2.position); renderer3.SetPosition(1, lineTarget3.position); renderer4.SetPosition(1, lineTarget4.position);
+
     }
 
     // fixed update runs 60 times per second
     private void FixedUpdate()
     {
-        // update the positions of our line renderers
-        renderer1.SetPosition(0, transform.position); renderer2.SetPosition(0, transform.position); renderer3.SetPosition(0, transform.position); renderer4.SetPosition(0, transform.position);
-        renderer1.SetPosition(1, lineTarget1.position); renderer2.SetPosition(1, lineTarget2.position); renderer3.SetPosition(1, lineTarget3.position); renderer4.SetPosition(1, lineTarget4.position);
-    }
+ }
 }
