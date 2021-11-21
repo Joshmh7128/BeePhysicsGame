@@ -8,6 +8,12 @@ public class GenManager : MonoBehaviour
     [SerializeField] Transform targetOrbTransform; // the target orb transform that we want to more around the map
     [SerializeField] float xVariance, yVariance, zVariance; // the amount of randomization we want in our orb placement
 
+    // generate the map at the start of the game
+    private void Start()
+    {
+        RegenMap();
+    }
+
     public void RegenMap()
     {
         // for each random child selector on the map, regen the map

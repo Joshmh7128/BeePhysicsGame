@@ -10,11 +10,6 @@ public class RandomChildSelector : MonoBehaviour
     bool hasEnabled; // have we enabled?
     int choice;
 
-    private void Start()
-    {
-        Regen();
-    }
-
     public void Regen()
     {
         transform.GetChild(choice).gameObject.SetActive(false);
