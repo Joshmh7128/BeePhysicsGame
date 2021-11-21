@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GenManager : MonoBehaviour
 {
@@ -8,11 +9,34 @@ public class GenManager : MonoBehaviour
     [SerializeField] Transform targetOrbTransform; // the target orb transform that we want to more around the map
     [SerializeField] float xVariance, yVariance, zVariance; // the amount of randomization we want in our orb placement
     [SerializeField] bool multiGen; // do we want to generate multiple times in the same level?
+    Gamepad ourGamepad;
+    bool stickPressed = false;
 
     // generate the map at the start of the game
     private void Start()
     {
-        RegenMap();
+        // start the map off
+        // for each random child selector on the map, regen the map
+        foreach (RandomChildSelector randomChildSelector in randomChildSelectors)
+        {
+            randomChildSelector.Regen();
+        }
+
+        ourGamepad = Gamepad.current;
+    }
+
+    private void Update()
+    {
+        if (ourGamepad.rightStickButton.IsPressed() && !stickPressed)
+        {
+            stickPressed = true;
+            multiGen = true;
+            RegenMap();
+            multiGen = false;
+        }
+
+        if (!ourGamepad.rightStickButton.isPressed)
+        { stickPressed = false; }
     }
 
     public void RegenMap()
