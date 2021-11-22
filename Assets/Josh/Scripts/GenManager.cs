@@ -27,7 +27,7 @@ public class GenManager : MonoBehaviour
 
     private void Update()
     {
-        if (ourGamepad.rightStickButton.IsPressed() && !stickPressed)
+        if (ourGamepad.selectButton.IsPressed() && !stickPressed)
         {
             stickPressed = true;
             multiGen = true;
@@ -35,7 +35,7 @@ public class GenManager : MonoBehaviour
             multiGen = false;
         }
 
-        if (!ourGamepad.rightStickButton.isPressed)
+        if (!ourGamepad.selectButton.isPressed)
         { stickPressed = false; }
     }
 

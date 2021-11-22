@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LineRenderer renderer1, renderer2, renderer3, renderer4; // our line renderers
     [SerializeField] Transform lineTarget1, lineTarget2, lineTarget3, lineTarget4; // our line renderer target
     [SerializeField] Transform movementArrow; // cosmetic arrow representing our movement
+    bool startPressed = false;
 
     void Start()
     {
@@ -48,10 +50,16 @@ public class PlayerController : MonoBehaviour
         renderer1.SetPosition(1, lineTarget1.position); renderer2.SetPosition(1, lineTarget2.position); renderer3.SetPosition(1, lineTarget3.position); renderer4.SetPosition(1, lineTarget4.position);
         // update our movement arrow
         movementArrow.transform.LookAt(movementArrow.transform.position + move);
+        // click to restart game
+        if (ourGamepad.startButton.IsPressed() && !startPressed)
+        {
+            startPressed = true;
+            SceneManager.LoadScene("PlaytestCompile");
+        }        
+        
+        if (!ourGamepad.startButton.IsPressed())
+        {
+            startPressed = false;
+        }
     }
-
-    // fixed update runs 60 times per second
-    private void FixedUpdate()
-    {
- }
 }
