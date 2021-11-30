@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform lineOrigin, lineTarget1, lineTarget2, lineTarget3, lineTarget4; // our line renderer target
     [SerializeField] Transform movementArrow; // cosmetic arrow representing our movement
     bool startPressed = false;
+    [SerializeField] float flightEnergy, maxEnergy; // how much energy we have left to fly?
 
     void Start()
     {
@@ -35,7 +36,13 @@ public class PlayerController : MonoBehaviour
         float moveHy = ourGamepad.leftStick.y.ReadValue();
         // get our triggers and use them for vertical movement
         float moveYr = ourGamepad.rightTrigger.ReadValue(); 
-        float moveYl = ourGamepad.leftTrigger.ReadValue(); 
+        float moveYl = ourGamepad.leftTrigger.ReadValue();
+
+        // expend energy to go up
+        if (ourGamepad.leftTrigger.ReadValue() < 0.5f && ourGamepad.rightTrigger.ReadValue() > 0.5f)
+        {
+            if (flightEnergy > 0) { flightEnergy--; }
+        }
 
         if (ourGamepad.leftTrigger.ReadValue() > 0.5f && ourGamepad.rightTrigger.ReadValue() > 0.5f)
         {
@@ -71,6 +78,18 @@ public class PlayerController : MonoBehaviour
         if (!ourGamepad.startButton.IsPressed())
         {
             startPressed = false;
+        }
+    }
+
+    RaycastHit hit;
+    private void FixedUpdate()
+    {
+        // if we hit the ground,
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, Physics.AllLayers))
+        {
+            if (!(hit.transform.tag == "Player"))
+            // reset our energy
+            flightEnergy = maxEnergy;   
         }
     }
 }
