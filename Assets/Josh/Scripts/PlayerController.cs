@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         if (ourGamepad.startButton.IsPressed() && !startPressed)
         {
             startPressed = true;
-            SceneManager.LoadScene("PlaytestCompile");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }        
         
         if (!ourGamepad.startButton.IsPressed())
