@@ -16,12 +16,12 @@ public class ItemClass : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision col)
     {
-        if (other.gameObject.tag != "Player" && isReal)
+        if (col.gameObject.tag != "Player")
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().itemClasses.Remove(this);
-            Destroy(gameObject); 
+            Destroy(gameObject);
         }
     }
 }
