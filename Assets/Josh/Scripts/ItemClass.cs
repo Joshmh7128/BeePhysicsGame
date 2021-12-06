@@ -6,6 +6,12 @@ public class ItemClass : MonoBehaviour
 {
     public bool isReal, hasAdded; // is this item real or just an orb display item? has this item added itself to the gamemanager?
 
+    private void Start()
+    {
+        if (isReal)
+        gameObject.tag = "Player";
+    }
+
     private void FixedUpdate()
     {
         // find our gamemanager and add this to the list
