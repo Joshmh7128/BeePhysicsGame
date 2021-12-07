@@ -25,5 +25,4 @@ public class FinalHandler : MonoBehaviour
         playerController.canMove = false;
         scoringScript.canTrack = false;
     }
-
 }

@@ -7,7 +7,8 @@ public class ScoringScript : MonoBehaviour
 {
     GameManager gameManager; // our game manager
     TimerScript timer; // our timer
-    int score; // our score
+    public int score, oneStarThreshold, twoStarThreshold, threeStarThreshold; // our score and star thresholds
+    [SerializeField] GameObject oneStar, twoStar, threeStar; // all three of the stars
     [SerializeField] Text scoreText; // our display score text
     public CanvasGroup scoreCanvasGroup; // our canvas group
     public bool canTrack;
@@ -24,5 +25,18 @@ public class ScoringScript : MonoBehaviour
         if (canTrack)
         score = gameManager.itemClasses.Count * timer.remainingTime;
         scoreText.text = score.ToString();
+
+        // setup our stars
+        if (score > oneStarThreshold)
+        { oneStar.SetActive(true);  }
+        else { oneStar.SetActive(false); }
+
+        if (score > twoStarThreshold)
+        { twoStar.SetActive(true); }
+        else { twoStar.SetActive(false); }
+
+        if (score > threeStarThreshold)
+        { threeStar.SetActive(true);  }
+        else { threeStar.SetActive(false); }
     }
 }
