@@ -92,4 +92,8 @@ public class PlayerController : MonoBehaviour
             flightEnergy = maxEnergy;   
         }
     }
+
+    public void AddForce(Vector3 force){
+        Debug.LogWarning(force + "Josh you are awesome, please add force to bee so it move back when win pushes it");
+    }
 }

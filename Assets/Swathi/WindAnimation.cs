@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class WindAnimation : MonoBehaviour
 {
-       public ParticleSystem ps;
-    public float timer; 
+    public ParticleSystem ps;
+    public PlayerController bee;
+    public float timer;
+    public float WindPower;
+
+    public bool SafeOrNo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,19 +33,27 @@ public class WindAnimation : MonoBehaviour
         // }   
     }
 
-    IEnumerator PlayParticles() {
+    IEnumerator PlayParticles()
+    {
         ps = GetComponent<ParticleSystem>();
-        
-        while (true) {
+
+        while (true)
+        {
+            // turn on ...
+            ps.Play();
+            for (var time = 0f; time < timer; time += Time.deltaTime)
+            {
+                yield return new WaitForFixedUpdate();
+                bee.AddForce(transform.forward * WindPower);
+            }             
             
-            yield return new WaitForSeconds(10.0f);
+            Debug.Log("PlayingParticles");
+            yield return new WaitForSeconds(timer);
             // turn off particles
             ps.Stop();
             Debug.Log("StoppedParticles");
-            yield return new WaitForSeconds(5.0f);
-            // turn on ...
-            ps.Play();
-            Debug.Log("PlayingParticles");
+          
         }
     }
+    
 }
