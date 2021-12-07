@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [Header("Main Control Values")]
     // player variable
     [SerializeField] CharacterController characterController;   // our main character controller that we will be moving
-    Vector3 move;                                               // our player movement vector
+    [SerializeField] Vector3 move, windMove;                                               // our player movement vector
     [SerializeField] float speed, lowSpeed, highSpeed;                               // speed of our player
     [SerializeField] float rotationSpeed;                            // rotation speed
     float currentRot;                                           // our current rotation on the Y axis
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         // turn those values in to a movement vector
         move = transform.right * moveHx + transform.forward * moveHy + new Vector3(0, moveYr + -moveYl, 0);
         // apply to the character controller
-        characterController.Move(move * Time.deltaTime * speed);
+        characterController.Move((move + windMove) * Time.deltaTime * speed);
         // lets rotate the bee using the right stick
         float rotX = ourGamepad.rightStick.x.ReadValue();
         currentRot += rotX; // apply as an addition to turn our bee
