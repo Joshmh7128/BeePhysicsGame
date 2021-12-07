@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2308139612942786509}
   - component: {fileID: 1125399531674198731}
   - component: {fileID: 2671534996916701856}
+  - component: {fileID: 4078548031259934592}
   m_Layer: 0
   m_Name: pepper_nolightnocamera
   m_TagString: Untagged
@@ -63,6 +64,20 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4078548031259934592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3117608128158762359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61018ee3c5dbe8141936a184f9a9484b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isReal: 0
+  hasAdded: 0
 --- !u!1 &9009561806981196824
 GameObject:
   m_ObjectHideFlags: 0
