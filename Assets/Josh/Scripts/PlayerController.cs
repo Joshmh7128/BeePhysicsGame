@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [Header("Main Control Values")]
     // player variable
     [SerializeField] CharacterController characterController;   // our main character controller that we will be moving
-    [SerializeField] Vector3 move, windMove;                                               // our player movement vector
+    public Vector3 move, windMove;                                               // our player movement vector
     [SerializeField] float speed, lowSpeed, highSpeed;                               // speed of our player
     [SerializeField] float rotationSpeed;                            // rotation speed
     float currentRot;                                           // our current rotation on the Y axis
@@ -91,9 +91,5 @@ public class PlayerController : MonoBehaviour
             // reset our energy
             flightEnergy = maxEnergy;   
         }
-    }
-
-    public void AddForce(Vector3 force){
-        Debug.LogWarning(force + "Josh you are awesome, please add force to bee so it move back when win pushes it");
     }
 }
