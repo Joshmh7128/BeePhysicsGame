@@ -44,7 +44,8 @@ public class WindAnimation : MonoBehaviour
             for (var time = 0f; time < timer; time += Time.deltaTime)
             {
                 yield return new WaitForFixedUpdate();
-                bee.AddForce(transform.forward * WindPower);
+                // bee.AddForce(transform.forward * WindPower);
+                // Commented this out cus we're doing particles differently
             }             
             
             Debug.Log("PlayingParticles");
