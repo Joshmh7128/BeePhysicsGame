@@ -111,7 +111,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PolyMesh:
+<<<<<<< Updated upstream
     name: PolybrushMesh29424
+=======
+    name: PolybrushMesh37656
+>>>>>>> Stashed changes
     vertices:
     - {x: -0.47552857, y: -1, z: -0.15450859}
     - {x: -0.40450877, y: -1, z: -0.2938928}
