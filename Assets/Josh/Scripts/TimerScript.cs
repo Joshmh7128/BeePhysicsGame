@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimerScript : MonoBehaviour
 {
@@ -28,12 +29,19 @@ public class TimerScript : MonoBehaviour
 
         time--;
 
+        // can we count down?
         if (time > 0 && canCount)
         {
             remainingTime = maxTime - time;
             timeText.text = time.ToString();
             slider.value = time;
             StartCoroutine(TimerRoutine());
+        }
+
+        // game over man!
+        if (time <= 0)
+        {   // reload
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
