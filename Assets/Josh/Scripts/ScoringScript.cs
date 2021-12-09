@@ -23,8 +23,10 @@ public class ScoringScript : MonoBehaviour
     private void FixedUpdate()
     {
         if (canTrack)
-        score = gameManager.itemClasses.Count * timer.remainingTime;
-        scoreText.text = score.ToString();
+        {
+            score = gameManager.itemClasses.Count * timer.remainingTime;
+            scoreText.text = score.ToString();
+        }
 
         // setup our stars
         if (score > oneStarThreshold)
