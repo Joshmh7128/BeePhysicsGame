@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 2538367544209801008}
   - component: {fileID: 4938772040868018565}
   - component: {fileID: 5058688595432116451}
+  - component: {fileID: 602204165771982166}
   m_Layer: 0
   m_Name: candy_nocamsandlight 1
   m_TagString: Untagged
@@ -95,6 +96,20 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &602204165771982166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914329759556117898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61018ee3c5dbe8141936a184f9a9484b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isReal: 0
+  hasAdded: 0
 --- !u!1 &4977894675825157604
 GameObject:
   m_ObjectHideFlags: 0

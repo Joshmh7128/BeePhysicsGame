@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [Header("Main Control Values")]
     // player variable
     [SerializeField] CharacterController characterController;   // our main character controller that we will be moving
-    Vector3 move;                                               // our player movement vector
+    public Vector3 move, windMove;                                               // our player movement vector
     [SerializeField] float speed, lowSpeed, highSpeed;                               // speed of our player
     [SerializeField] float rotationSpeed;                            // rotation speed
     float currentRot;                                           // our current rotation on the Y axis
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform movementArrow; // cosmetic arrow representing our movement
     bool startPressed = false;
     [SerializeField] float flightEnergy, maxEnergy; // how much energy we have left to fly?
+    public bool canMove; // can we move?
 
     void Start()
     {
@@ -26,6 +27,8 @@ public class PlayerController : MonoBehaviour
         ourGamepad = Gamepad.current;
         // get our current rotation
         currentRot = transform.rotation.y;
+        // we can move
+        canMove = true;
     }
 
     // Update is called once per frame
@@ -35,7 +38,7 @@ public class PlayerController : MonoBehaviour
         float moveHx = ourGamepad.leftStick.x.ReadValue();
         float moveHy = ourGamepad.leftStick.y.ReadValue();
         // get our triggers and use them for vertical movement
-        float moveYr = ourGamepad.rightTrigger.ReadValue(); 
+        float moveYr = ourGamepad.rightTrigger.ReadValue();
         float moveYl = ourGamepad.leftTrigger.ReadValue();
 
         // expend energy to go up
@@ -57,7 +60,8 @@ public class PlayerController : MonoBehaviour
         // turn those values in to a movement vector
         move = transform.right * moveHx + transform.forward * moveHy + new Vector3(0, moveYr + -moveYl, 0);
         // apply to the character controller
-        characterController.Move(move * Time.deltaTime * speed);
+        if (canMove) {
+        characterController.Move((move + windMove) * Time.deltaTime * speed); }
         // lets rotate the bee using the right stick
         float rotX = ourGamepad.rightStick.x.ReadValue();
         currentRot += rotX; // apply as an addition to turn our bee
@@ -73,7 +77,13 @@ public class PlayerController : MonoBehaviour
         {
             startPressed = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }        
+        }    
+        
+        // return to the main menu
+        if (ourGamepad.selectButton.IsPressed())
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
         
         if (!ourGamepad.startButton.IsPressed())
         {
@@ -91,9 +101,5 @@ public class PlayerController : MonoBehaviour
             // reset our energy
             flightEnergy = maxEnergy;   
         }
-    }
-
-    public void AddForce(Vector3 force){
-        Debug.LogWarning(force + "Josh you are awesome, please add force to bee so it move back when win pushes it");
     }
 }

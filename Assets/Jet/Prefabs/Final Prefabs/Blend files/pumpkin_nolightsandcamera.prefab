@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3012589828824971629}
   - component: {fileID: 3514217763763619083}
+  - component: {fileID: 4431205463277085891}
+  - component: {fileID: 4232819079153478676}
   m_Layer: 0
   m_Name: pumpkin_nolightsandcamera
   m_TagString: Untagged
@@ -25,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2487410657648010199}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.0155, y: 3.1736026, z: -13.426552}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 6453480322881538144}
   m_Father: {fileID: 0}
@@ -48,6 +50,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4431205463277085891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487410657648010199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61018ee3c5dbe8141936a184f9a9484b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isReal: 0
+  hasAdded: 0
+--- !u!65 &4232819079153478676
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487410657648010199}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5097518, y: 0.83263254, z: 1.5920374}
+  m_Center: {x: 0.03405133, y: 0.08368373, z: 0.011502862}
 --- !u!1 &6888428511645843728
 GameObject:
   m_ObjectHideFlags: 0
