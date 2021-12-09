@@ -308,7 +308,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Intro3Main
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &697123338
@@ -575,7 +575,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Intro1Main
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &795023801
@@ -791,7 +791,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Intro2Main
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1326733122
@@ -1175,7 +1175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6915753019116818987, guid: c0dc1dfc0adc64341b2eb3dfcf9fddfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: '"mainMenu"'
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6915753019116818990, guid: c0dc1dfc0adc64341b2eb3dfcf9fddfb, type: 3}
       propertyPath: m_Enabled
