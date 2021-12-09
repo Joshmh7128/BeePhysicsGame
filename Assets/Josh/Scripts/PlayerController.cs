@@ -77,7 +77,13 @@ public class PlayerController : MonoBehaviour
         {
             startPressed = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }        
+        }    
+        
+        // return to the main menu
+        if (ourGamepad.selectButton.IsPressed())
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
         
         if (!ourGamepad.startButton.IsPressed())
         {
