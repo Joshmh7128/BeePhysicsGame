@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1782466158431177393}
   - component: {fileID: 522731861781613552}
+  - component: {fileID: 8394281182547276921}
+  - component: {fileID: 7140402287759930590}
   m_Layer: 0
   m_Name: secondleek_nolightandcamera 1
   m_TagString: Untagged
@@ -25,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438696853557366795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.235, y: 6.752, z: -6.0495}
-  m_LocalScale: {x: 0.52804, y: 0.52804, z: 0.52804}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4831407412055930731}
   m_Father: {fileID: 0}
@@ -48,6 +50,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8394281182547276921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438696853557366795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61018ee3c5dbe8141936a184f9a9484b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isReal: 0
+  hasAdded: 0
+--- !u!65 &7140402287759930590
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438696853557366795}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.89005816, y: 16.67909, z: 1.9969773}
+  m_Center: {x: -0.054970764, y: -0.95457196, z: 0.09186293}
 --- !u!1 &3282848576031712090
 GameObject:
   m_ObjectHideFlags: 0
