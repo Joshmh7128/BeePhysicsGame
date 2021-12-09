@@ -34,12 +34,14 @@ public class FinalHandler : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-        // if we finish the level we can no longer count
-        timer.canCount = false;
-        // show our score
-        scoringScript.scoreCanvasGroup.alpha = 1;
-        playerController.canMove = false;
-        scoringScript.canTrack = false;
-        canLoad = true;
+        {
+            // if we finish the level we can no longer count
+            timer.canCount = false;
+            // show our score
+            scoringScript.scoreCanvasGroup.alpha = 1;
+            playerController.canMove = false;
+            scoringScript.canTrack = false;
+            canLoad = true;
+        }
     }
 }
